@@ -63,13 +63,13 @@ const MainTableModal = ({ rowID, handleCancel, isModalVisible }: Props) => {
                     <h5>{data?.launch.rocket.rocket_name}</h5>
                   </div>
                   <div>
-                    <a href={data?.launch.links.wikipedia}>
+                    <a href="#">
                       <img src="/Assets/NASA.svg" alt="" />
                     </a>
-                    <a href={data?.launch.links.video_link}>
+                    <a href={data?.launch.links.wikipedia}>
                       <img src="/Assets/wikipedia.svg" alt="" />
                     </a>
-                    <a href="#">
+                    <a href={data?.launch.links.video_link}>
                       <img src="/Assets/youtube.svg" alt="" />
                     </a>
                   </div>
