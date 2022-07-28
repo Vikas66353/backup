@@ -16,6 +16,8 @@ export interface Launch {
   rocket: Rocket
   links: Links
   launch_date_local: string
+  launch_success:boolean
+  upcoming:boolean
 }
 
 export interface LaunchSite {
@@ -27,6 +29,7 @@ export interface Rocket {
   second_stage: SecondStage
   rocket_type: string
   rocket: Rocket2
+  first_stage: FirstStage
 }
 
 export interface SecondStage {
@@ -37,12 +40,20 @@ export interface Payload {
   orbit: string
   nationality: string
   payload_type: string
-  manufacturer: string
+  manufacturer?: string
 }
 
 export interface Rocket2 {
   description: string
   type: string
+}
+
+export interface FirstStage {
+  cores: Core[]
+}
+
+export interface Core {
+  flight: number
 }
 
 export interface Links {

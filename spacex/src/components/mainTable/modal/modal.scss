@@ -1,4 +1,8 @@
 
+$upcoming_text:#92400F;
+$success_text:#03543F;
+$failed_text:#981B1C;
+
 
 .desc{
     p{
@@ -6,14 +10,52 @@
         font-size: 14;
         line-height: 24px;
         color: #1F2937;
+
     }
+}
+
+label{
+    width: 164px;
+}
+
+.heading{
+    font-weight: 500;
+    font-size: 18px;
+    line-height:18px ;
+}
+
+.status-container{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 13px;
+    width: 72px;
+    height: 21px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 4px,12px,4px,12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.upcoming{
+    color:$upcoming_text;
+    background-color: #FEF3C7;
+}
+.success{
+    color:$success_text;
+    background-color: #DEF7EC;
+}
+.failed{
+    color:$failed_text;
+    background-color: #FDE2E1;
 }
 
 
 .info{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border-bottom: 1px solid #E4E4E7;
     width: 455px;
     height: 35px;
@@ -21,13 +63,9 @@
     color: #4B5563;
     font-size: 14px;
     line-height: 14px;
-    span{
-        margin-right:60px ;
-    }
-
 }
 
 .info_container{
-    height:452.64px;
+    height:350.64px;
     width: 455px;
 }

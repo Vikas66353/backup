@@ -13,22 +13,7 @@ interface Props{
 }
 
 const MainTableModal = ({rowID, handleCancel,isModalVisible}:Props) => {
-  const {data,loading,error}=useQuery<Root,id>(FindLaunchDetail,{variables:{id:rowID}});
-  console.log(data?.launch)
-
-    // const [isModalVisible, setIsModalVisible] = useState(false);
-
-    // const showModal = () => {
-    //   setIsModalVisible(true);
-    // };
-  
-    // const handleOk = () => {
-    //   setIsModalVisible(false);
-    // };
-  
-    // const handleCancel = () => {
-    //   setIsModalVisible(false);
-    // };
+  const {data,loading}=useQuery<Root,id>(FindLaunchDetail,{variables:{id:rowID}});
   
     return (
       <>
@@ -41,8 +26,8 @@ const MainTableModal = ({rowID, handleCancel,isModalVisible}:Props) => {
           </div>
           <div className='logo_content' style={{marginLeft:"15px"}}>
             <div style={{display:"flex",margin:"0",padding:"0"}}>
-              <h2 style={{fontSize:"18px",fontWeight:"500"}}>{data?.launch.mission_name}</h2>
-              <span>success</span>
+              <div className='heading'>{data?.launch.mission_name}</div>
+              <div className={`status-container ${data?.launch.upcoming?"upcoming":data?.launch.launch_success?"success":"failed"}`}>{data?.launch.upcoming?"Upcoming":data?.launch.launch_success?"Success":"Failed"}</div>
             </div>
             <div>
               <h5>{data?.launch.rocket.rocket_name}</h5>
@@ -62,43 +47,43 @@ const MainTableModal = ({rowID, handleCancel,isModalVisible}:Props) => {
             </div>
             <div className="info_container">
               <div className='info'>
-                <span>Flight Number</span>
-                <span>9</span>
+                <label>Flight Number</label>
+                <span>{data?.launch.rocket.first_stage.cores[0].flight}</span>
               </div>
               <div className='info'>
-                <span>Mission Name</span>
+                <label>Mission Name</label>
                 <span>{data?.launch.mission_name}</span>
               </div>
               <div className='info'>
-                <span>Rocket Type</span>
+                <label>Rocket Type</label>
                 <span>{data?.launch.rocket.rocket_type}</span>
               </div>
               <div className='info'>
-                <span>Rocket Name</span>
+                <label>Rocket Name</label>
                 <span>{data?.launch.rocket.rocket_name}</span>
               </div>
               <div className='info'>
-                <span>Manufacturer</span>
+                <label>Manufacturer</label>
                 <span>{data?.launch.rocket.second_stage.payloads[0].manufacturer}</span>
               </div>
               <div className='info'>
-                <span>Nationality</span>
+                <label>Nationality</label>
                 <span>{data?.launch.rocket.second_stage.payloads[0].nationality}</span>
               </div>
               <div className='info'>
-                <span>Launch Date</span>
+                <label>Launch Date</label>
                 <span>{data?.launch.launch_date_local}</span>
               </div>
               <div className='info'>
-                <span>Payload Type</span>
+                <label>Payload Type</label>
                 <span>{data?.launch.rocket.second_stage.payloads[0].payload_type}</span>
               </div>
               <div className='info'>
-                <span >Orbit</span>
+                <label >Orbit</label>
                 <span>{data?.launch.rocket.second_stage.payloads[0].orbit}</span>
               </div>
               <div className='info'>
-                <span >Launch Site</span>
+                <label>Launch Site</label>
                 <span>{data?.launch.launch_site.site_name}</span>
               </div>
 

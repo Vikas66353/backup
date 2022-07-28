@@ -22,12 +22,19 @@ query launch($id: ID!) {
         description
         type
       }
+      first_stage {
+        cores {
+          flight
+        }
+      }
     }
     links {
-      video_link
       wikipedia
+      video_link
     }
     launch_date_local
+    launch_success
+    upcoming
   }
 }
 `;
