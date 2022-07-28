@@ -1,9 +1,13 @@
-import "./nav.css"
+import "./navbar.scss"
 import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <nav>
+      <div className="logo">
+        <img src="/Assets/spaceXLOGO.png" alt="" />
+      </div>
+    </nav>
   )
 }
 
