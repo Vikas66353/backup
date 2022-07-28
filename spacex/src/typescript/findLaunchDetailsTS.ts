@@ -2,11 +2,11 @@ export interface id{
   id:number
 }
 
-export interface Root {
-  data: Data
-}
+// export interface Root {
+//   data: Data
+// }
 
-export interface Data {
+export interface Root {
   launch: Launch
 }
 

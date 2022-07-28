@@ -12,7 +12,7 @@ import Modal from "./modal/MainTableModal"
 const Main_Table = () => {
     const {data,loading,error}=useQuery<Root,limit>(GetLaunchedHistory,{variables:{limit:109}});
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [rowID,setRowID]=useState();
+    const [rowID,setRowID]=useState<number>();
     const showModal = () => {
       setIsModalVisible(true);
     };
@@ -25,14 +25,6 @@ const Main_Table = () => {
       setIsModalVisible(false);
     };
     var color;
-
-    // data?.launchesPast.map((launch)=>{
-    //   console.log(launch)
-    // })
-
-    console.log(data?.launchesPast.length)
-
-    // for (var i=data?.launchesPast.length;i>=0;i--)
 
     const columns = [
       {
@@ -93,12 +85,16 @@ const Main_Table = () => {
       <Navbar/>
       <main>
       <div className="table_container">
-      <Table  rowClassName="main_table_row" onRow={(record)=>{return { onClick:event=>{}}}} locale={locale} loading={loading} dataSource={data?.launchesPast} className='main_table'  columns={columns} />; 
+      <Table  rowClassName="main_table_row" onRow={(record)=>{return { onClick:event=>{setRowID(record.id);showModal()}}}} locale={locale} loading={loading} dataSource={data?.launchesPast} className='main_table'  columns={columns} />; 
       </div>
-      <Modal/>
+      {rowID&&<Modal rowID={rowID} handleCancel={handleCancel} isModalVisible={isModalVisible}/>}
       </main>
     </div>
   )
 }
 
 export default Main_Table
+
+function showModalshowModal() {
+  throw new Error('Function not implemented.');
+}

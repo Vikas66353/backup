@@ -17,7 +17,7 @@ export interface LaunchesPast {
   launch_site: LaunchSite
   rocket: Rocket
   launch_success: boolean
-  id: string
+  id: number
   upcoming: boolean
 }
 
