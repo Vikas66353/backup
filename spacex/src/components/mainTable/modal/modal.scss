@@ -1,0 +1,33 @@
+
+
+.desc{
+    p{
+        font-weight: 400;
+        font-size: 14;
+        line-height: 24px;
+        color: #1F2937;
+    }
+}
+
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #E4E4E7;
+    width: 455px;
+    height: 35px;
+    font-weight: 500;
+    color: #4B5563;
+    font-size: 14px;
+    line-height: 14px;
+    span{
+        margin-right:60px ;
+    }
+
+}
+
+.info_container{
+    height:452.64px;
+    width: 455px;
+}

@@ -1,16 +1,29 @@
 import React, {useState} from 'react'
 import {GetLaunchedHistory} from "../../graphql/quries/launchesPast"
-import {useQuery } from '@apollo/client'
+import {useQuery} from '@apollo/client'
 import {Root,limit} from "../../typescript/launchedHistoryTS"
 import 'antd/dist/antd.css';
 import { Table, Tag } from 'antd';
 import Navbar from '../navbar/Navbar';
 import "./mainTable.scss"
-import LaunchDetails from "../LaunchDetails/LaunchDetails"
+import Modal from "./modal/MainTableModal"
 
 
 const Main_Table = () => {
     const {data,loading,error}=useQuery<Root,limit>(GetLaunchedHistory,{variables:{limit:109}});
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [rowID,setRowID]=useState();
+    const showModal = () => {
+      setIsModalVisible(true);
+    };
+  
+    const handleOk = () => {
+      setIsModalVisible(false);
+    };
+  
+    const handleCancel = () => {
+      setIsModalVisible(false);
+    };
     var color;
 
     // data?.launchesPast.map((launch)=>{
@@ -82,7 +95,7 @@ const Main_Table = () => {
       <div className="table_container">
       <Table  rowClassName="main_table_row" onRow={(record)=>{return { onClick:event=>{}}}} locale={locale} loading={loading} dataSource={data?.launchesPast} className='main_table'  columns={columns} />; 
       </div>
-      <LaunchDetails/>
+      <Modal/>
       </main>
     </div>
   )

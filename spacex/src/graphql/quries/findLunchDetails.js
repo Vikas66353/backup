@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GetLaunchedHistory = gql`
+export const FindLaunchDetail = gql`
 query launch($id: ID!) {
   launch(id: $id) {
     mission_name

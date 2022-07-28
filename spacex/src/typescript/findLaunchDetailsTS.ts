@@ -1,3 +1,7 @@
+export interface id{
+  id:number
+}
+
 export interface Root {
   data: Data
 }
